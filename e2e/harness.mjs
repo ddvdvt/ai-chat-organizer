@@ -55,11 +55,15 @@ export async function startFixtureServer(extra) {
   return { server, port, url: (svc, path) => `http://${HOSTS[svc]}:${port}${path}` };
 }
 
-/** Copy and adapt the extension (see the header comment). */
-export async function prepareExtension(port, { openShadow = true } = {}) {
+/**
+ * Copy and adapt the extension (see the header comment). firefox: start from the Firefox build
+ * (scripts/firefox.mjs) instead of extension/.
+ */
+export async function prepareExtension(port, { openShadow = true, firefox = false } = {}) {
   const work = await mkdtemp(join(tmpdir(), 'aco-e2e-'));
   const extDir = join(work, 'extension');
-  await cp(join(ROOT, 'extension'), extDir, { recursive: true });
+  if (firefox) (await import('../scripts/firefox.mjs')).writeUnpacked(extDir);
+  else await cp(join(ROOT, 'extension'), extDir, { recursive: true });
   const patch = async (rel, fn) => {
     const f = join(extDir, rel);
     const before = await readFile(f, 'utf8');
