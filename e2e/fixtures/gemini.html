@@ -1,0 +1,77 @@
+<!doctype html>
+<!-- Local fixture that mimics the DOM structure of gemini.google.com (logged in) from public
+     knowledge: Angular custom elements user-query / model-response / message-content, code-block
+     with .code-block-decoration label, table-block, data-math formulas, rich-textarea .ql-editor,
+     conversations-list links /app/<hex id>. -->
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Gemini</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font:15px/1.65 "Segoe UI",system-ui,sans-serif;color:#1f1f1f;background:#fff;height:100vh;overflow:hidden}
+  .app{display:flex;height:100vh}
+  side-navigation-v2{display:block;width:280px;flex:none;background:#f0f4f9;padding:14px 12px;overflow:auto}
+  .recent{font-size:13px;font-weight:600;color:#444746;margin:16px 12px 6px}
+  conversations-list{display:block}
+  a.conversation{display:block;padding:8px 12px;border-radius:20px;color:#1f1f1f;text-decoration:none;font-size:14px}
+  a.conversation:hover{background:#e1e5ea}a.conversation.selected{background:#d3e3fd}
+  .conversation-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  main{flex:1;display:flex;flex-direction:column;min-width:0}
+  .top{height:56px;display:flex;align-items:center;padding:0 20px;font-size:20px;color:#444746}
+  .scroll{flex:1;overflow:auto}
+  .conversation-container{max-width:760px;margin:0 auto;padding:10px 24px 40px}
+  user-query{display:flex;justify-content:flex-end;margin:16px 0}
+  .query-text{background:#e9eef6;border-radius:20px 4px 20px 20px;padding:10px 16px;max-width:75%}
+  .query-text-line{margin:0}
+  model-response{display:block;margin:12px 0 26px}
+  .markdown p{margin:0 0 12px}
+  .code-block{background:#f0f4f9;border-radius:14px;margin:12px 0;overflow:hidden}
+  .code-block-decoration{display:flex;justify-content:space-between;padding:8px 16px;font-size:13px;color:#444746}
+  .code-block-decoration button{border:0;background:none;color:#444746}
+  pre{margin:0;padding:4px 16px 14px;font:13px/1.5 Consolas,monospace;overflow:auto}
+  table{border-collapse:collapse;margin:10px 0}th,td{border:1px solid #dadce0;padding:5px 10px;text-align:left}
+  .input-area{max-width:760px;width:calc(100% - 48px);margin:0 auto 18px;background:#f0f4f9;border-radius:28px;padding:14px 20px}
+  .ql-editor{outline:none;min-height:24px}.ql-editor p{margin:0}
+  mat-icon{font-size:0}
+</style>
+</head>
+<body data-title-suffix="" data-home-title="Gemini">
+<div class="app">
+  <side-navigation-v2>
+    <div class="recent">Недавние</div>
+    <conversations-list><div class="conversations-container">
+      <a data-fixture-link class="mat-mdc-tooltip-trigger conversation" data-test-id="conversation" href="/app/1a2b3c4d5e6f7a8b"><div class="conversation-title">Формула сложных процентов</div></a>
+      <a data-fixture-link class="mat-mdc-tooltip-trigger conversation" data-test-id="conversation" href="/app/2b3c4d5e6f7a8b9c"><div class="conversation-title">Рецепт плова на 6 человек</div></a>
+      <a data-fixture-link class="mat-mdc-tooltip-trigger conversation" data-test-id="conversation" href="/app/3c4d5e6f7a8b9c0d"><div class="conversation-title">Маршрут по Чарынскому каньону</div></a>
+      <a data-fixture-link class="mat-mdc-tooltip-trigger conversation" data-test-id="conversation" href="/app/4d5e6f7a8b9c0d1e"><div class="conversation-title">Подбор ноутбука для учёбы</div></a>
+    </div></conversations-list>
+  </side-navigation-v2>
+  <main>
+    <div class="top">Gemini</div>
+    <div class="scroll"><div class="conversation-container" data-fixture-thread></div></div>
+    <div class="input-area"><rich-textarea><div class="ql-editor textarea new-input-ui" contenteditable="true" role="textbox" aria-label="Введите запрос"><p><br></p></div></rich-textarea></div>
+  </main>
+</div>
+
+<template id="chat:/app/1a2b3c4d5e6f7a8b" data-title="Формула сложных процентов">
+  <user-query><user-query-content><div class="query-content"><div class="query-text gds-body-l"><p class="query-text-line">Как посчитать сложные проценты по вкладу?</p><p class="query-text-line">Сумма 100 000, ставка 12% годовых, 3 года.</p></div></div></user-query-content></user-query>
+  <model-response><response-container><div class="response-container-content"><message-content class="model-response-text"><div class="markdown markdown-main-panel">
+    <p>Используйте формулу <span class="math-inline" data-math="A = P(1 + r/n)^{nt}"><span class="katex">A = P(1 + r/n)^{nt}</span></span>, где:</p>
+    <ul><li><strong>P</strong> — начальная сумма;</li><li><strong>r</strong> — годовая ставка (0,12);</li><li><strong>n</strong> — число капитализаций в год.</li></ul>
+    <table-block><div class="table-block"><table><thead><tr><th>Капитализация</th><th>Итог через 3 года</th></tr></thead><tbody><tr><td>Ежегодная</td><td>140 493 ₸</td></tr><tr><td>Ежемесячная</td><td>143 077 ₸</td></tr></tbody></table></div></table-block>
+    <p>Проверить можно кодом:</p>
+    <code-block><div class="code-block ng-star-inserted"><div class="code-block-decoration header-formatted gds-title-s"><span>Python</span><div class="buttons"><button aria-label="Копировать код"><mat-icon fonticon="content_copy">content_copy</mat-icon></button></div></div><div class="formatted-code-block-internal-container"><div class="animated-opacity"><pre><code role="text" data-test-id="code-content" class="code-container formatted">P, r, n, t = 100_000, 0.12, 12, 3
+print(round(P * (1 + r / n) ** (n * t)))</code></pre></div></div></div></code-block>
+    <div class="math-block" data-math="\sum_{k=1}^{n} k = \frac{n(n+1)}{2}"><span class="katex-display">…</span></div>
+  </div></message-content></div></response-container></model-response>
+</template>
+
+<template id="chat:/app/2b3c4d5e6f7a8b9c" data-title="Рецепт плова на 6 человек">
+  <user-query><div class="query-text"><p class="query-text-line">Рецепт плова на 6 человек</p></div></user-query>
+  <model-response><message-content><div class="markdown markdown-main-panel"><p>Понадобится 1 кг риса девзира, 1 кг баранины, 1 кг моркови и 300 мл масла.</p></div></message-content></model-response>
+</template>
+
+<script src="/_spa.js"></script>
+</body>
+</html>

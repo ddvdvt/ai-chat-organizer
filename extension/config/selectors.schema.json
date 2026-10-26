@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AI chat organizer — selector config (data only)",
+  "description": "Every list is tried in order; the first selector that matches wins. Validated at runtime by lib/selectors.js (validateConfig); invalid entries are dropped and the features that need them switch off.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "services"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "comment": { "type": "string" },
+    "version": { "type": "integer", "minimum": 1 },
+    "updated": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "services": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "chatgpt": { "$ref": "#/$defs/service" },
+        "claude": { "$ref": "#/$defs/service" },
+        "gemini": { "$ref": "#/$defs/service" }
+      }
+    }
+  },
+  "$defs": {
+    "selectors": {
+      "type": "array",
+      "maxItems": 40,
+      "items": { "type": "string", "minLength": 1, "maxLength": 300, "pattern": "^[^<{}@;\\\\\\r\\n]+$" }
+    },
+    "service": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "chatPath": {
+          "description": "Regexes over location.pathname with exactly one capture group: the chat id.",
+          "type": "array",
+          "maxItems": 40,
+          "items": { "type": "string", "minLength": 1, "maxLength": 200 }
+        },
+        "sidebarLink": { "$ref": "#/$defs/selectors", "description": "Links to chats in the service's sidebar (drag source, hover button)." },
+        "message": { "$ref": "#/$defs/selectors", "description": "Root element of every message, user and assistant. Union of all selectors, in document order; nested matches are ignored." },
+        "userMessage": { "$ref": "#/$defs/selectors", "description": "Union: a message root matching (or containing) one of these is the user's; otherwise the assistant's." },
+        "content": { "$ref": "#/$defs/selectors", "description": "Content element inside a message root (first match); the root itself when none matches." },
+        "strip": { "$ref": "#/$defs/selectors", "description": "Removed from a copy of the content before conversion (buttons, hidden labels)." },
+        "codeBlock": { "$ref": "#/$defs/selectors", "description": "Container of a code block, searched for a language label when <code> has no language-* class." },
+        "codeLanguage": { "$ref": "#/$defs/selectors", "description": "Language label inside a code block container." },
+        "title": { "$ref": "#/$defs/selectors", "description": "Element holding the current chat title; document.title is the fallback." },
+        "titleSuffix": {
+          "description": "Strings removed from the end of document.title.",
+          "type": "array",
+          "maxItems": 40,
+          "items": { "type": "string", "minLength": 1, "maxLength": 60 }
+        },
+        "input": { "$ref": "#/$defs/selectors", "description": "Prompt input (contenteditable or textarea) for the prompt library." },
+        "streaming": { "$ref": "#/$defs/selectors", "description": "Present while an answer is being generated; indexing waits until it disappears." }
+      }
+    }
+  }
+}

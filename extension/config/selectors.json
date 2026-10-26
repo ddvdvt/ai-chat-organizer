@@ -1,0 +1,50 @@
+{
+  "$schema": "./selectors.schema.json",
+  "comment": "Data only: CSS selectors (tried in order, first match wins; message and userMessage are unions), chat-URL regexes and title suffixes. Written from public knowledge of the services' markup and tested against local fixture pages; NOT yet verified on logged-in pages. When a list stops matching, the feature that needs it switches off and the popup says the service changed.",
+  "version": 1,
+  "updated": "2026-10-26",
+  "services": {
+    "chatgpt": {
+      "chatPath": ["/c/([0-9a-fA-F][0-9a-fA-F-]{15,63})(?:[/?#]|$)"],
+      "sidebarLink": ["nav a[href*='/c/']", "#history a[href*='/c/']", "aside a[href*='/c/']"],
+      "message": ["[data-message-author-role]"],
+      "userMessage": ["[data-message-author-role='user']"],
+      "content": [".markdown", ".whitespace-pre-wrap", "[data-message-content]"],
+      "strip": ["button", "[role='button']", ".sr-only", "svg", "[data-testid*='copy']", "[aria-hidden='true']"],
+      "codeBlock": ["pre"],
+      "codeLanguage": ["pre div.flex.items-center.text-xs", "pre .text-xs", "pre > div > div:first-child"],
+      "title": ["nav a[aria-current='page']", "nav a[data-active] div", "nav a[data-active]"],
+      "titleSuffix": [" | ChatGPT", " - ChatGPT", "ChatGPT"],
+      "input": ["#prompt-textarea[contenteditable='true']", "#prompt-textarea", "div.ProseMirror[contenteditable='true']", "textarea[name='prompt-textarea']", "form textarea"],
+      "streaming": ["[data-testid='stop-button']", "button[aria-label*='Stop']", ".result-streaming"]
+    },
+    "claude": {
+      "chatPath": ["/chat/([0-9a-fA-F][0-9a-fA-F-]{15,63})(?:[/?#]|$)"],
+      "sidebarLink": ["nav a[href*='/chat/']", "aside a[href*='/chat/']"],
+      "message": ["[data-testid='user-message']", ".font-claude-response", ".font-claude-message"],
+      "userMessage": ["[data-testid='user-message']"],
+      "content": [".standard-markdown", ".progressive-markdown", "[class*='markdown']"],
+      "strip": ["button", "[role='button']", ".sr-only", "svg", "[data-testid*='copy']", "[aria-hidden='true']"],
+      "codeBlock": [".code-block__code", "pre"],
+      "codeLanguage": [".text-text-300", "[class*='code-block'] .text-xs", "pre > div:first-child"],
+      "title": ["[data-testid='chat-menu-trigger'] .truncate", "[data-testid='chat-menu-trigger']", "[data-testid='chat-title-button']"],
+      "titleSuffix": [" - Claude", " | Claude", "Claude"],
+      "input": ["div.ProseMirror[contenteditable='true']", "[data-testid='chat-input'] [contenteditable='true']", "fieldset [contenteditable='true']", "textarea"],
+      "streaming": ["[data-is-streaming='true']", "button[aria-label='Stop response']", "button[aria-label*='Stop']"]
+    },
+    "gemini": {
+      "chatPath": ["/app/([0-9a-fA-F]{8,64})(?:[/?#]|$)", "/gem/[^/]+/([0-9a-fA-F]{8,64})(?:[/?#]|$)"],
+      "sidebarLink": ["conversations-list a[href*='/app/']", "side-navigation a[href*='/app/']", "nav a[href*='/app/']", "a[data-test-id='conversation'][href*='/app/']"],
+      "message": ["user-query", "model-response"],
+      "userMessage": ["user-query"],
+      "content": [".query-text", "message-content .markdown", ".markdown", "message-content"],
+      "strip": ["button", "[role='button']", ".cdk-visually-hidden", "mat-icon", "svg", "[aria-hidden='true']", ".code-block-decoration button", "sources-carousel-inline", "response-element-footer"],
+      "codeBlock": ["code-block", ".code-block", "pre"],
+      "codeLanguage": [".code-block-decoration > span", ".code-block-decoration span", ".code-block-decoration"],
+      "title": ["[data-test-id='conversation'].selected .conversation-title", ".conversation.selected .conversation-title", "[data-test-id='conversation-title']", ".conversation-title-container .conversation-title"],
+      "titleSuffix": [" - Gemini", " | Gemini", "Gemini", "Google Gemini"],
+      "input": ["rich-textarea .ql-editor[contenteditable='true']", ".ql-editor[contenteditable='true']", "rich-textarea [contenteditable='true']", "textarea"],
+      "streaming": ["model-response[aria-busy='true']", "button[aria-label='Stop response']", ".stop-icon", "pending-request"]
+    }
+  }
+}

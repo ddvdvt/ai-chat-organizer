@@ -1,0 +1,95 @@
+<!doctype html>
+<!-- Local fixture that mimics the DOM structure of chatgpt.com (logged in) from public knowledge:
+     data-message-author-role turns, .markdown answers, <pre> with a language header and
+     code.language-*, #prompt-textarea ProseMirror input, sidebar links /c/<uuid>. No real content. -->
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Новый чат</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font:15px/1.6 "Segoe UI",system-ui,sans-serif;color:#0d0d0d;background:#fff;height:100vh;overflow:hidden}
+  .flex.h-full{display:flex;height:100vh}
+  nav{width:260px;flex:none;background:#f9f9f9;border-right:1px solid #ececec;padding:12px 8px;overflow:auto}
+  nav .new{display:block;padding:8px 10px;border-radius:8px;font-weight:600;color:#0d0d0d;text-decoration:none;margin-bottom:10px}
+  #history h2{font-size:12px;color:#8f8f8f;font-weight:600;margin:16px 10px 4px}
+  #history a{display:block;padding:7px 10px;border-radius:8px;color:#0d0d0d;text-decoration:none;font-size:14px}
+  #history a:hover,#history a[data-active]{background:#ececec}
+  .truncate{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  main{flex:1;display:flex;flex-direction:column;min-width:0}
+  .top{height:52px;display:flex;align-items:center;padding:0 18px;font-weight:600;font-size:17px;color:#5d5d5d}
+  .scroll{flex:1;overflow:auto}
+  .thread{max-width:760px;margin:0 auto;padding:12px 24px 40px}
+  article{margin:8px 0 22px}
+  [data-message-author-role="user"]{display:flex;justify-content:flex-end}
+  [data-message-author-role="user"] .whitespace-pre-wrap{background:#f4f4f4;border-radius:18px;padding:10px 16px;max-width:75%;white-space:pre-wrap}
+  .markdown p{margin:0 0 12px}
+  pre{margin:12px 0;border-radius:12px;overflow:hidden;background:#f9f9f9;border:1px solid #ececec}
+  pre .text-xs{font-size:12px;padding:6px 14px;background:#f0f0f0;color:#5d5d5d;display:flex;justify-content:space-between}
+  pre code{display:block;padding:12px 14px;font:13px/1.5 Consolas,monospace;white-space:pre}
+  code{font-family:Consolas,monospace}
+  table{border-collapse:collapse;margin:10px 0}th,td{border:1px solid #e5e5e5;padding:5px 10px;text-align:left}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+  form{max-width:760px;margin:0 auto 18px;width:calc(100% - 48px);border:1px solid #e5e5e5;border-radius:26px;padding:12px 18px;box-shadow:0 2px 8px rgba(0,0,0,.05);display:flex;align-items:center;gap:10px}
+  #prompt-textarea{flex:1;outline:none;min-height:26px;max-height:200px;overflow:auto}
+  #prompt-textarea p{margin:0}
+  form button{border:0;background:#0d0d0d;color:#fff;border-radius:50%;width:34px;height:34px}
+</style>
+</head>
+<body data-title-suffix="" data-home-title="ChatGPT">
+<div class="flex h-full">
+  <nav aria-label="Chat history">
+    <a class="new" href="/">Новый чат</a>
+    <div id="history">
+      <h2>Сегодня</h2>
+      <a data-fixture-link data-sidebar-item="true" href="/c/6f1e2a3b-0c4d-4e5f-8a9b-1c2d3e4f5a6b"><div class="truncate">Cron: скрипт каждые 15 минут</div></a>
+      <a data-fixture-link data-sidebar-item="true" href="/c/7a2b3c4d-1e2f-4a5b-9c8d-2e3f4a5b6c7d"><div class="truncate">Разница между JOIN в SQL</div></a>
+      <h2>Вчера</h2>
+      <a data-fixture-link data-sidebar-item="true" href="/c/8b3c4d5e-2f3a-4b6c-8d9e-3f4a5b6c7d8e"><div class="truncate">План поездки на выходные</div></a>
+      <a data-fixture-link data-sidebar-item="true" href="/c/9c4d5e6f-3a4b-4c7d-9e0f-4a5b6c7d8e9f"><div class="truncate">Письмо арендодателю о ремонте</div></a>
+      <h2>Предыдущие 7 дней</h2>
+      <a data-fixture-link data-sidebar-item="true" href="/c/0d5e6f7a-4b5c-4d8e-8f0a-5b6c7d8e9f0a"><div class="truncate">Разбор ошибки TypeError в React</div></a>
+      <a data-fixture-link data-sidebar-item="true" href="/c/1e6f7a8b-5c6d-4e9f-9a1b-6c7d8e9f0a1b"><div class="truncate">Идеи подарка коллеге</div></a>
+      <a data-fixture-link data-sidebar-item="true" href="/c/2f7a8b9c-6d7e-4f0a-8b2c-7d8e9f0a1b2c"><div class="truncate">Регулярное выражение для email</div></a>
+    </div>
+  </nav>
+  <main>
+    <div class="top">Модель 5</div>
+    <div class="scroll"><div class="thread" data-fixture-thread></div></div>
+    <form onsubmit="return false"><div id="prompt-textarea" contenteditable="true" class="ProseMirror" translate="no"><p></p></div><button type="button" data-testid="send-button" aria-label="Отправить">↑</button></form>
+  </main>
+</div>
+
+<template id="chat:/c/6f1e2a3b-0c4d-4e5f-8a9b-1c2d3e4f5a6b" data-title="Cron: скрипт каждые 15 минут">
+  <article data-testid="conversation-turn-1"><h5 class="sr-only">Вы сказали:</h5>
+    <div data-message-author-role="user" data-message-id="m1"><div class="whitespace-pre-wrap">Как запускать скрипт backup.sh каждые 15 минут?
+И как проверить, что cron его действительно запускает?</div></div>
+  </article>
+  <article data-testid="conversation-turn-2"><h6 class="sr-only">ChatGPT сказал:</h6>
+    <div data-message-author-role="assistant" data-message-id="m2"><div class="markdown prose w-full break-words">
+      <p>Откройте таблицу задач командой <code>crontab -e</code> и добавьте строку:</p>
+      <pre class="overflow-visible!"><div class="contain-inline-size rounded-2xl"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9">bash</div><div class="sticky top-9"><div class="absolute bottom-0 right-2 flex h-9 items-center"><button class="flex gap-1 items-center"><svg width="16" height="16"></svg>Копировать код</button></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="whitespace-pre! language-bash"><span class="hljs-comment"># каждые 15 минут, вывод — в лог</span>
+*/15 * * * * /home/user/backup.sh &gt;&gt; /var/log/backup.log 2&gt;&amp;1</code></div></div></pre>
+      <p>Пять полей расписания:</p>
+      <table><thead><tr><th>Поле</th><th>Значения</th><th>Пример</th></tr></thead>
+        <tbody><tr><td>Минуты</td><td>0–59</td><td><code>*/15</code></td></tr><tr><td>Часы</td><td>0–23</td><td><code>*</code></td></tr><tr><td>День месяца</td><td>1–31</td><td><code>*</code></td></tr><tr><td>Месяц</td><td>1–12</td><td><code>*</code></td></tr><tr><td>День недели</td><td>0–7 (0 и 7 — воскресенье)</td><td><code>1-5</code> | будни</td></tr></tbody></table>
+      <p>Чтобы <strong>проверить запуск</strong>:</p>
+      <ol><li><p>Посмотрите системный журнал: <code>grep CRON /var/log/syslog</code>.</p></li><li><p>Убедитесь, что скрипт исполняемый:</p><ul><li><code>chmod +x backup.sh</code></li><li>первая строка — <code>#!/bin/bash</code></li></ul></li><li><p>Проверьте лог <em>backup.log</em> через 15 минут.</p></li></ol>
+      <p>Частота запусков в час: <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>60</mn><mo>/</mo><mn>15</mn><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">60 / 15 = 4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true">60/15=4</span></span>. Подробнее — в <a href="https://man7.org/linux/man-pages/man5/crontab.5.html" target="_blank" rel="noopener">man 5 crontab</a>.</p>
+    </div></div>
+  </article>
+</template>
+
+<template id="chat:/c/7a2b3c4d-1e2f-4a5b-9c8d-2e3f4a5b6c7d" data-title="Разница между JOIN в SQL">
+  <article data-testid="conversation-turn-1"><div data-message-author-role="user" data-message-id="m3"><div class="whitespace-pre-wrap">Чем LEFT JOIN отличается от INNER JOIN?</div></div></article>
+  <article data-testid="conversation-turn-2"><div data-message-author-role="assistant" data-message-id="m4"><div class="markdown prose">
+    <p><strong>INNER JOIN</strong> возвращает только совпадающие строки, а <strong>LEFT JOIN</strong> — все строки левой таблицы.</p>
+    <pre class="overflow-visible!"><div class="contain-inline-size"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9">sql</div><div class="overflow-y-auto p-4"><code class="whitespace-pre! language-sql">SELECT u.name, o.total
+FROM users u
+LEFT JOIN orders o ON o.user_id = u.id;</code></div></div></pre>
+  </div></div></article>
+</template>
+
+<script src="/_spa.js"></script>
+</body>
+</html>
