@@ -1,0 +1,518 @@
+{
+  "extName": {
+    "message": "AI Chat Organizer — folders, search, export"
+  },
+  "extShortName": {
+    "message": "AI Chats"
+  },
+  "extDescription": {
+    "message": "Folders, tags, pins and local full-text search for your AI chats. Export to Markdown, HTML, PDF. For ChatGPT, Claude and Gemini."
+  },
+  "extShortTitle": {
+    "message": "AI Chat Organizer"
+  },
+  "actionTitle": {
+    "message": "AI Chat Organizer"
+  },
+  "organizerTitle": {
+    "message": "AI Chat Organizer"
+  },
+  "loading": {
+    "message": "Loading…"
+  },
+  "openOrganizerShort": {
+    "message": "Organizer"
+  },
+  "searchAllPh": {
+    "message": "Search the chats you opened"
+  },
+  "find": {
+    "message": "Search"
+  },
+  "sitesTitle": {
+    "message": "Where the extension works"
+  },
+  "sitesNote": {
+    "message": "The extension works only on the sites you enable. You can revoke access at any time."
+  },
+  "on": {
+    "message": "on"
+  },
+  "off": {
+    "message": "off"
+  },
+  "openASite": {
+    "message": "Open a chat in ChatGPT, Claude or Gemini"
+  },
+  "openASiteHint": {
+    "message": "First enable the site below. A small organizer button with folders, search and export appears on the right edge of the page."
+  },
+  "reloadTab": {
+    "message": "reload the page to start the organizer"
+  },
+  "statusOk": {
+    "message": "working"
+  },
+  "statusDegraded": {
+    "message": "site changed"
+  },
+  "siteChanged": {
+    "message": "The site changed its markup; temporarily not working: $1. An extension update is pending."
+  },
+  "featureMessages": {
+    "message": "chat search and export"
+  },
+  "featurePrompts": {
+    "message": "prompt insertion"
+  },
+  "featureSidebar": {
+    "message": "sidebar button"
+  },
+  "noChatOpen": {
+    "message": "Open a chat to pin it, put it into a folder or export it."
+  },
+  "messagesOnScreen": {
+    "message": "Messages on screen: $1"
+  },
+  "showPanel": {
+    "message": "Show the panel on the page"
+  },
+  "popupStats": {
+    "message": "Chats in search: $1 · Folders: $2 · Pinned: $3"
+  },
+  "permissionNotChanged": {
+    "message": "Access not changed"
+  },
+  "localOnly": {
+    "message": "Your data stays on this device"
+  },
+  "otherExtensions": {
+    "message": "More extensions by the author"
+  },
+  "panelOpen": {
+    "message": "Chat organizer: folders, search, export"
+  },
+  "panelTitle": {
+    "message": "Organizer"
+  },
+  "openOrganizer": {
+    "message": "Open the organizer in a new tab"
+  },
+  "close": {
+    "message": "Close"
+  },
+  "tabFolders": {
+    "message": "Folders"
+  },
+  "tabSearch": {
+    "message": "Search"
+  },
+  "tabPrompts": {
+    "message": "Prompts"
+  },
+  "newFolderPh": {
+    "message": "New folder"
+  },
+  "newTagPh": {
+    "message": "+ tag"
+  },
+  "create": {
+    "message": "Create"
+  },
+  "searchSitePh": {
+    "message": "Search opened chats on this site"
+  },
+  "searchExplain": {
+    "message": "Searches the chats of this site you have opened. Search across all services in the organizer."
+  },
+  "indexOffHere": {
+    "message": "Saving chats for search is off for this site (organizer settings)."
+  },
+  "nothingFound": {
+    "message": "Nothing found. Only chats you opened while the extension was on are searchable."
+  },
+  "folder": {
+    "message": "Folder"
+  },
+  "noFolder": {
+    "message": "No folder"
+  },
+  "pin": {
+    "message": "Pin"
+  },
+  "unpin": {
+    "message": "Unpin"
+  },
+  "pinned": {
+    "message": "Pinned"
+  },
+  "pinnedOk": {
+    "message": "Pinned"
+  },
+  "unpinned": {
+    "message": "Unpinned"
+  },
+  "moved": {
+    "message": "Moved"
+  },
+  "folders": {
+    "message": "Folders"
+  },
+  "noFoldersYet": {
+    "message": "No folders yet. Create one below, then drag a chat from the list on the left onto it."
+  },
+  "folderEmptyHere": {
+    "message": "No chats of this site in this folder"
+  },
+  "dropHint": {
+    "message": "Drop the chat on a folder"
+  },
+  "moveToFolder": {
+    "message": "Move to folder…"
+  },
+  "export": {
+    "message": "Export"
+  },
+  "exportPdfHint": {
+    "message": "Opens a print page — choose \"Save as PDF\""
+  },
+  "exported": {
+    "message": "Exported"
+  },
+  "pdfOpened": {
+    "message": "Print page opened"
+  },
+  "noMessages": {
+    "message": "No messages on screen"
+  },
+  "errorGeneric": {
+    "message": "Something went wrong. Reload the page and try again."
+  },
+  "siteChangedPanel": {
+    "message": "The site changed its markup — export and search for this chat are temporarily unavailable. An extension update is pending."
+  },
+  "noPromptsYet": {
+    "message": "No prompts yet."
+  },
+  "managePrompts": {
+    "message": "Manage prompts"
+  },
+  "insert": {
+    "message": "Insert"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "promptInserted": {
+    "message": "Prompt inserted"
+  },
+  "inputNotFound": {
+    "message": "Input box not found"
+  },
+  "untitled": {
+    "message": "Untitled chat"
+  },
+  "roleUser": {
+    "message": "You"
+  },
+  "source": {
+    "message": "Source"
+  },
+  "viewChats": {
+    "message": "Chats"
+  },
+  "viewPrompts": {
+    "message": "Prompts"
+  },
+  "viewSettings": {
+    "message": "Settings"
+  },
+  "allChats": {
+    "message": "All chats"
+  },
+  "recent": {
+    "message": "Recent"
+  },
+  "tags": {
+    "message": "Tags"
+  },
+  "services": {
+    "message": "Services"
+  },
+  "newFolder": {
+    "message": "New folder"
+  },
+  "editFolder": {
+    "message": "Edit folder"
+  },
+  "deleteFolder": {
+    "message": "Delete folder"
+  },
+  "confirmDeleteFolder": {
+    "message": "Delete folder \"$1\" and its subfolders? The chats stay, they become \"no folder\"."
+  },
+  "newTag": {
+    "message": "New tag"
+  },
+  "editTag": {
+    "message": "Edit tag"
+  },
+  "deleteTag": {
+    "message": "Delete tag"
+  },
+  "confirmDeleteTag": {
+    "message": "Delete tag \"$1\"? It will be removed from all chats."
+  },
+  "name": {
+    "message": "Name"
+  },
+  "parentFolder": {
+    "message": "Inside folder"
+  },
+  "topLevel": {
+    "message": "— top level —"
+  },
+  "color": {
+    "message": "Colour"
+  },
+  "moveUp": {
+    "message": "Up"
+  },
+  "moveDown": {
+    "message": "Down"
+  },
+  "limitReached": {
+    "message": "Limit reached"
+  },
+  "noFoldersSide": {
+    "message": "Press + to create a folder"
+  },
+  "noTagsSide": {
+    "message": "No tags yet"
+  },
+  "selectAll": {
+    "message": "Select all"
+  },
+  "select": {
+    "message": "Select"
+  },
+  "moveSelected": {
+    "message": "Move selected ($1)…"
+  },
+  "moveSelectedNone": {
+    "message": "Move selected…"
+  },
+  "movedN": {
+    "message": "Moved: $1"
+  },
+  "exportZip": {
+    "message": "Download .zip"
+  },
+  "exportZipN": {
+    "message": "Download .zip ($1)"
+  },
+  "exportedN": {
+    "message": "Chats exported: $1"
+  },
+  "notIndexed": {
+    "message": "The text of this chat is not saved yet: open the chat on the site"
+  },
+  "indexedHint": {
+    "message": "Text saved in this browser: search and export available"
+  },
+  "inSearch": {
+    "message": "searchable"
+  },
+  "linkOnly": {
+    "message": "link only"
+  },
+  "searchResults": {
+    "message": "Search results for \"$1\""
+  },
+  "tagsFor": {
+    "message": "Tags: $1"
+  },
+  "renameChat": {
+    "message": "Rename"
+  },
+  "renameNote": {
+    "message": "The name changes only in the organizer, not on the site."
+  },
+  "forgetChat": {
+    "message": "Remove from organizer"
+  },
+  "confirmForgetChat": {
+    "message": "Remove \"$1\" from the organizer and delete its saved text? The chat stays on the site."
+  },
+  "emptyAllEnabled": {
+    "message": "Nothing here yet. Open any chat on an enabled site and it shows up here. To file chats, drag them from the site's chat list onto a folder in the organizer panel."
+  },
+  "emptyAllNoSites": {
+    "message": "Enable the sites where you chat with AI. The extension gets access to those sites only."
+  },
+  "emptyFolder": {
+    "message": "This folder is empty. Drag chats here or pick the folder in a chat's menu."
+  },
+  "emptyView": {
+    "message": "Nothing here yet"
+  },
+  "enableSite": {
+    "message": "Enable $1"
+  },
+  "disableSite": {
+    "message": "Disable"
+  },
+  "siteEnabled": {
+    "message": "enabled"
+  },
+  "siteDisabled": {
+    "message": "disabled"
+  },
+  "newPrompt": {
+    "message": "New prompt"
+  },
+  "promptTitle": {
+    "message": "Title"
+  },
+  "promptBody": {
+    "message": "Prompt text"
+  },
+  "promptVarsHint": {
+    "message": "Write variables in double curly braces: {{topic}}. When inserting, the extension asks for their values."
+  },
+  "promptsWhere": {
+    "message": "Insert prompts into the input box from the organizer panel on a chat page (\"Prompts\" tab)."
+  },
+  "variables": {
+    "message": "Variables"
+  },
+  "promptEmpty": {
+    "message": "Enter the prompt text"
+  },
+  "addSamples": {
+    "message": "Add examples"
+  },
+  "confirmDeletePrompt": {
+    "message": "Delete this prompt?"
+  },
+  "save": {
+    "message": "Save"
+  },
+  "saved": {
+    "message": "Saved"
+  },
+  "delete": {
+    "message": "Delete"
+  },
+  "deleted": {
+    "message": "Deleted"
+  },
+  "settingsSites": {
+    "message": "Sites"
+  },
+  "settingsSitesNote": {
+    "message": "The extension works only on enabled sites and only with the page you have open."
+  },
+  "settingIndex": {
+    "message": "Remember opened chats for search (title and text)"
+  },
+  "settingPanel": {
+    "message": "Organizer button on the page"
+  },
+  "inIndexN": {
+    "message": "In search: $1"
+  },
+  "clearIndex": {
+    "message": "Delete saved texts"
+  },
+  "confirmClearIndex": {
+    "message": "Delete all saved chat texts of $1? Folders and pins stay."
+  },
+  "healthOff": {
+    "message": "Site not enabled"
+  },
+  "healthUnknown": {
+    "message": "Markup not checked yet — open the site"
+  },
+  "healthOk": {
+    "message": "Markup OK (checked $1)"
+  },
+  "sidebarNotSeen": {
+    "message": "The site's chat list was not found — it may be collapsed."
+  },
+  "settingsIndex": {
+    "message": "Search over opened chats"
+  },
+  "indexExplain1": {
+    "message": "When you open a chat, the extension saves its title and text in this browser (IndexedDB), so search and export from the organizer work."
+  },
+  "indexExplain2": {
+    "message": "The extension never calls the services' APIs and never downloads your history: only chats you open yourself become searchable. Nothing is sent over the internet."
+  },
+  "indexExplain3": {
+    "message": "Turn saving off for any site with the switch above. Exporting the open chat works without it."
+  },
+  "sectionBackup": {
+    "message": "Backup"
+  },
+  "backupNote": {
+    "message": "Folders, tags, pins, prompts and settings in one .json file. Chat texts are not included: they become searchable again when you open the chats."
+  },
+  "exportJson": {
+    "message": "Export (.json)"
+  },
+  "importJson": {
+    "message": "Import (.json)"
+  },
+  "confirmImport": {
+    "message": "Replace current folders, tags, prompts and settings with the file contents?"
+  },
+  "imported": {
+    "message": "Imported"
+  },
+  "importFailed": {
+    "message": "Invalid file"
+  },
+  "sectionData": {
+    "message": "Data"
+  },
+  "dataStats": {
+    "message": "Chats in organizer: $1 · saved texts: $2 · folders: $3 · prompts: $4"
+  },
+  "forgetHistory": {
+    "message": "Forget opened-chat history"
+  },
+  "confirmForgetHistory": {
+    "message": "Delete all saved texts and opened-chat history? Chats in folders, with tags or pinned stay."
+  },
+  "clearAll": {
+    "message": "Delete all data"
+  },
+  "confirmClearAll": {
+    "message": "Delete folders, tags, pins, prompts and saved texts? This cannot be undone."
+  },
+  "sectionSelectors": {
+    "message": "Site compatibility"
+  },
+  "selectorsVersion": {
+    "message": "Markup rules: version $1 of $2"
+  },
+  "selectorsNote": {
+    "message": "If a site changes its markup, the features that depend on it switch off and a warning appears here and in the popup. The fix arrives with an extension update."
+  },
+  "privacyShort": {
+    "message": "The extension sends nothing to the internet: no analytics, ads or accounts."
+  },
+  "printTitle": {
+    "message": "Print chat"
+  },
+  "printHint": {
+    "message": "Choose \"Save as PDF\" in the print dialog."
+  },
+  "printButton": {
+    "message": "Print / PDF"
+  },
+  "printNotFound": {
+    "message": "Chat not found. Open it on the site and export again."
+  }
+}

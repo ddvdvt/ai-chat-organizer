@@ -1,0 +1,518 @@
+{
+  "extName": {
+    "message": "Органайзер ИИ-чатов — папки, поиск, экспорт"
+  },
+  "extShortName": {
+    "message": "Органайзер"
+  },
+  "extDescription": {
+    "message": "Папки, теги, закрепление и локальный поиск по вашим ИИ-чатам. Экспорт в Markdown, HTML, PDF. Для ChatGPT, Claude и Gemini."
+  },
+  "extShortTitle": {
+    "message": "Органайзер ИИ-чатов"
+  },
+  "actionTitle": {
+    "message": "Органайзер ИИ-чатов"
+  },
+  "organizerTitle": {
+    "message": "Органайзер ИИ-чатов"
+  },
+  "loading": {
+    "message": "Загрузка…"
+  },
+  "openOrganizerShort": {
+    "message": "Органайзер"
+  },
+  "searchAllPh": {
+    "message": "Поиск по открытым чатам"
+  },
+  "find": {
+    "message": "Найти"
+  },
+  "sitesTitle": {
+    "message": "Где работает расширение"
+  },
+  "sitesNote": {
+    "message": "Расширение работает только на включённых сайтах. Доступ можно отозвать в любой момент."
+  },
+  "on": {
+    "message": "вкл."
+  },
+  "off": {
+    "message": "выкл."
+  },
+  "openASite": {
+    "message": "Откройте чат в ChatGPT, Claude или Gemini"
+  },
+  "openASiteHint": {
+    "message": "Сначала включите сайт ниже. На странице справа появится кнопка органайзера с папками, поиском и экспортом."
+  },
+  "reloadTab": {
+    "message": "обновите страницу, чтобы включить органайзер"
+  },
+  "statusOk": {
+    "message": "работает"
+  },
+  "statusDegraded": {
+    "message": "сайт изменился"
+  },
+  "siteChanged": {
+    "message": "Сайт изменил разметку, временно не работает: $1. Ждём обновления расширения."
+  },
+  "featureMessages": {
+    "message": "поиск и экспорт чата"
+  },
+  "featurePrompts": {
+    "message": "вставка промптов"
+  },
+  "featureSidebar": {
+    "message": "кнопка у списка чатов"
+  },
+  "noChatOpen": {
+    "message": "Откройте чат, чтобы закрепить его, положить в папку или экспортировать."
+  },
+  "messagesOnScreen": {
+    "message": "Сообщений на экране: $1"
+  },
+  "showPanel": {
+    "message": "Показать панель на странице"
+  },
+  "popupStats": {
+    "message": "В поиске чатов: $1 · Папок: $2 · Закреплено: $3"
+  },
+  "permissionNotChanged": {
+    "message": "Доступ не изменён"
+  },
+  "localOnly": {
+    "message": "Данные хранятся только у вас"
+  },
+  "otherExtensions": {
+    "message": "Другие расширения автора"
+  },
+  "panelOpen": {
+    "message": "Органайзер чатов: папки, поиск, экспорт"
+  },
+  "panelTitle": {
+    "message": "Органайзер"
+  },
+  "openOrganizer": {
+    "message": "Открыть органайзер в новой вкладке"
+  },
+  "close": {
+    "message": "Закрыть"
+  },
+  "tabFolders": {
+    "message": "Папки"
+  },
+  "tabSearch": {
+    "message": "Поиск"
+  },
+  "tabPrompts": {
+    "message": "Промпты"
+  },
+  "newFolderPh": {
+    "message": "Новая папка"
+  },
+  "newTagPh": {
+    "message": "+ тег"
+  },
+  "create": {
+    "message": "Создать"
+  },
+  "searchSitePh": {
+    "message": "Поиск по открытым чатам этого сайта"
+  },
+  "searchExplain": {
+    "message": "Ищет по чатам этого сайта, которые вы открывали. Поиск по всем сервисам — в органайзере."
+  },
+  "indexOffHere": {
+    "message": "Сохранение чатов для поиска выключено для этого сайта (настройки органайзера)."
+  },
+  "nothingFound": {
+    "message": "Ничего не найдено. В поиск попадают только чаты, которые вы открывали с включённым расширением."
+  },
+  "folder": {
+    "message": "Папка"
+  },
+  "noFolder": {
+    "message": "Без папки"
+  },
+  "pin": {
+    "message": "Закрепить"
+  },
+  "unpin": {
+    "message": "Открепить"
+  },
+  "pinned": {
+    "message": "Закреплённые"
+  },
+  "pinnedOk": {
+    "message": "Закреплено"
+  },
+  "unpinned": {
+    "message": "Откреплено"
+  },
+  "moved": {
+    "message": "Перемещено"
+  },
+  "folders": {
+    "message": "Папки"
+  },
+  "noFoldersYet": {
+    "message": "Папок пока нет. Создайте первую ниже или перетащите чат из списка слева на папку."
+  },
+  "folderEmptyHere": {
+    "message": "В этой папке нет чатов этого сайта"
+  },
+  "dropHint": {
+    "message": "Отпустите чат на папке"
+  },
+  "moveToFolder": {
+    "message": "В папку…"
+  },
+  "export": {
+    "message": "Экспорт"
+  },
+  "exportPdfHint": {
+    "message": "Откроет страницу для печати — выберите «Сохранить как PDF»"
+  },
+  "exported": {
+    "message": "Экспортировано"
+  },
+  "pdfOpened": {
+    "message": "Открыта страница для печати"
+  },
+  "noMessages": {
+    "message": "На экране нет сообщений"
+  },
+  "errorGeneric": {
+    "message": "Не получилось. Обновите страницу и попробуйте ещё раз."
+  },
+  "siteChangedPanel": {
+    "message": "Сайт изменил разметку — экспорт и поиск по этому чату временно не работают. Ждём обновления расширения."
+  },
+  "noPromptsYet": {
+    "message": "Промптов пока нет."
+  },
+  "managePrompts": {
+    "message": "Управлять промптами"
+  },
+  "insert": {
+    "message": "Вставить"
+  },
+  "cancel": {
+    "message": "Отмена"
+  },
+  "promptInserted": {
+    "message": "Промпт вставлен"
+  },
+  "inputNotFound": {
+    "message": "Поле ввода не найдено"
+  },
+  "untitled": {
+    "message": "Без названия"
+  },
+  "roleUser": {
+    "message": "Вы"
+  },
+  "source": {
+    "message": "Источник"
+  },
+  "viewChats": {
+    "message": "Чаты"
+  },
+  "viewPrompts": {
+    "message": "Промпты"
+  },
+  "viewSettings": {
+    "message": "Настройки"
+  },
+  "allChats": {
+    "message": "Все чаты"
+  },
+  "recent": {
+    "message": "Недавние"
+  },
+  "tags": {
+    "message": "Теги"
+  },
+  "services": {
+    "message": "Сервисы"
+  },
+  "newFolder": {
+    "message": "Новая папка"
+  },
+  "editFolder": {
+    "message": "Изменить папку"
+  },
+  "deleteFolder": {
+    "message": "Удалить папку"
+  },
+  "confirmDeleteFolder": {
+    "message": "Удалить папку «$1» и её подпапки? Чаты останутся, они станут «без папки»."
+  },
+  "newTag": {
+    "message": "Новый тег"
+  },
+  "editTag": {
+    "message": "Изменить тег"
+  },
+  "deleteTag": {
+    "message": "Удалить тег"
+  },
+  "confirmDeleteTag": {
+    "message": "Удалить тег «$1»? Он будет снят со всех чатов."
+  },
+  "name": {
+    "message": "Название"
+  },
+  "parentFolder": {
+    "message": "Внутри папки"
+  },
+  "topLevel": {
+    "message": "— верхний уровень —"
+  },
+  "color": {
+    "message": "Цвет"
+  },
+  "moveUp": {
+    "message": "Выше"
+  },
+  "moveDown": {
+    "message": "Ниже"
+  },
+  "limitReached": {
+    "message": "Достигнут лимит"
+  },
+  "noFoldersSide": {
+    "message": "Нажмите +, чтобы создать папку"
+  },
+  "noTagsSide": {
+    "message": "Тегов пока нет"
+  },
+  "selectAll": {
+    "message": "Выбрать все"
+  },
+  "select": {
+    "message": "Выбрать"
+  },
+  "moveSelected": {
+    "message": "Переместить выбранные ($1)…"
+  },
+  "moveSelectedNone": {
+    "message": "Переместить выбранные…"
+  },
+  "movedN": {
+    "message": "Перемещено: $1"
+  },
+  "exportZip": {
+    "message": "Скачать .zip"
+  },
+  "exportZipN": {
+    "message": "Скачать .zip ($1)"
+  },
+  "exportedN": {
+    "message": "Экспортировано чатов: $1"
+  },
+  "notIndexed": {
+    "message": "Текст этого чата ещё не сохранён: откройте чат на сайте"
+  },
+  "indexedHint": {
+    "message": "Текст сохранён в этом браузере: доступны поиск и экспорт"
+  },
+  "inSearch": {
+    "message": "в поиске"
+  },
+  "linkOnly": {
+    "message": "только ссылка"
+  },
+  "searchResults": {
+    "message": "Результаты поиска «$1»"
+  },
+  "tagsFor": {
+    "message": "Теги: $1"
+  },
+  "renameChat": {
+    "message": "Переименовать"
+  },
+  "renameNote": {
+    "message": "Название меняется только в органайзере, не на сайте."
+  },
+  "forgetChat": {
+    "message": "Убрать из органайзера"
+  },
+  "confirmForgetChat": {
+    "message": "Убрать «$1» из органайзера и удалить его сохранённый текст? На сайте чат останется."
+  },
+  "emptyAllEnabled": {
+    "message": "Пока пусто. Откройте любой чат на включённом сайте — он появится здесь. Чтобы разложить чаты по папкам, перетащите их из списка на сайте на папку в панели органайзера."
+  },
+  "emptyAllNoSites": {
+    "message": "Включите сайты, на которых вы общаетесь с ИИ. Расширение получит доступ только к ним."
+  },
+  "emptyFolder": {
+    "message": "В папке пусто. Перетащите сюда чаты из списка или выберите папку в меню чата."
+  },
+  "emptyView": {
+    "message": "Здесь пока ничего нет"
+  },
+  "enableSite": {
+    "message": "Включить $1"
+  },
+  "disableSite": {
+    "message": "Отключить"
+  },
+  "siteEnabled": {
+    "message": "включено"
+  },
+  "siteDisabled": {
+    "message": "выключено"
+  },
+  "newPrompt": {
+    "message": "Новый промпт"
+  },
+  "promptTitle": {
+    "message": "Название"
+  },
+  "promptBody": {
+    "message": "Текст промпта"
+  },
+  "promptVarsHint": {
+    "message": "Переменные пишите в двойных фигурных скобках: {{тема}}. При вставке расширение спросит их значения."
+  },
+  "promptsWhere": {
+    "message": "Промпты вставляются в поле ввода через панель органайзера на странице чата (вкладка «Промпты»)."
+  },
+  "variables": {
+    "message": "Переменные"
+  },
+  "promptEmpty": {
+    "message": "Введите текст промпта"
+  },
+  "addSamples": {
+    "message": "Добавить примеры"
+  },
+  "confirmDeletePrompt": {
+    "message": "Удалить этот промпт?"
+  },
+  "save": {
+    "message": "Сохранить"
+  },
+  "saved": {
+    "message": "Сохранено"
+  },
+  "delete": {
+    "message": "Удалить"
+  },
+  "deleted": {
+    "message": "Удалено"
+  },
+  "settingsSites": {
+    "message": "Сайты"
+  },
+  "settingsSitesNote": {
+    "message": "Расширение работает только на включённых сайтах и только с той страницей, которую вы открыли."
+  },
+  "settingIndex": {
+    "message": "Запоминать открытые чаты для поиска (название и текст)"
+  },
+  "settingPanel": {
+    "message": "Кнопка органайзера на странице"
+  },
+  "inIndexN": {
+    "message": "В поиске: $1"
+  },
+  "clearIndex": {
+    "message": "Удалить сохранённые тексты"
+  },
+  "confirmClearIndex": {
+    "message": "Удалить все сохранённые тексты чатов $1? Папки и закрепления останутся."
+  },
+  "healthOff": {
+    "message": "Сайт не включён"
+  },
+  "healthUnknown": {
+    "message": "Разметка ещё не проверялась — откройте сайт"
+  },
+  "healthOk": {
+    "message": "Разметка в порядке (проверено $1)"
+  },
+  "sidebarNotSeen": {
+    "message": "Список чатов сайта не найден — возможно, он свёрнут."
+  },
+  "settingsIndex": {
+    "message": "Поиск по открытым чатам"
+  },
+  "indexExplain1": {
+    "message": "Когда вы открываете чат, расширение сохраняет его название и текст в этом браузере (IndexedDB), чтобы работали поиск и экспорт из органайзера."
+  },
+  "indexExplain2": {
+    "message": "Расширение не обращается к API сервисов и не скачивает вашу историю: в поиск попадают только чаты, которые вы сами открыли. Ничего не отправляется в интернет."
+  },
+  "indexExplain3": {
+    "message": "Выключите сохранение для любого сайта переключателем выше. Экспорт открытого чата работает и без него."
+  },
+  "sectionBackup": {
+    "message": "Резервная копия"
+  },
+  "backupNote": {
+    "message": "Папки, теги, закрепления, промпты и настройки — в один файл .json. Тексты чатов в копию не входят: они снова попадут в поиск, когда вы откроете чаты."
+  },
+  "exportJson": {
+    "message": "Экспорт (.json)"
+  },
+  "importJson": {
+    "message": "Импорт (.json)"
+  },
+  "confirmImport": {
+    "message": "Заменить текущие папки, теги, промпты и настройки данными из файла?"
+  },
+  "imported": {
+    "message": "Импортировано"
+  },
+  "importFailed": {
+    "message": "Файл не подходит"
+  },
+  "sectionData": {
+    "message": "Данные"
+  },
+  "dataStats": {
+    "message": "Чатов в органайзере: $1 · сохранённых текстов: $2 · папок: $3 · промптов: $4"
+  },
+  "forgetHistory": {
+    "message": "Забыть историю открытых чатов"
+  },
+  "confirmForgetHistory": {
+    "message": "Удалить все сохранённые тексты и историю открытых чатов? Чаты в папках, с тегами и закреплённые останутся."
+  },
+  "clearAll": {
+    "message": "Удалить все данные"
+  },
+  "confirmClearAll": {
+    "message": "Удалить папки, теги, закрепления, промпты и сохранённые тексты? Это нельзя отменить."
+  },
+  "sectionSelectors": {
+    "message": "Совместимость с сайтами"
+  },
+  "selectorsVersion": {
+    "message": "Правила разметки: версия $1 от $2"
+  },
+  "selectorsNote": {
+    "message": "Если сайт изменит разметку, функции, которые от неё зависят, отключатся, а здесь и во всплывающем окне появится предупреждение. Исправление приходит с обновлением расширения."
+  },
+  "privacyShort": {
+    "message": "Расширение ничего не отправляет в интернет: нет аналитики, рекламы и аккаунтов."
+  },
+  "printTitle": {
+    "message": "Печать чата"
+  },
+  "printHint": {
+    "message": "Выберите «Сохранить как PDF» в окне печати."
+  },
+  "printButton": {
+    "message": "Печать / PDF"
+  },
+  "printNotFound": {
+    "message": "Чат не найден. Откройте его на сайте и экспортируйте ещё раз."
+  }
+}

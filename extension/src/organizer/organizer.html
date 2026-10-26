@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="organizerTitle">Органайзер ИИ-чатов</title>
+<link rel="icon" href="../../icons/icon32.png">
+<link rel="stylesheet" href="../shared/ui.css">
+<link rel="stylesheet" href="organizer.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><img src="../../icons/icon32.png" width="26" height="26" alt=""><h1 data-i18n="extShortTitle">Органайзер ИИ-чатов</h1></div>
+  <form id="searchForm" class="search" role="search">
+    <input id="q" type="search" autocomplete="off" data-i18n-placeholder="searchAllPh" placeholder="Поиск по открытым чатам" aria-label="Поиск">
+  </form>
+  <nav class="views" aria-label="Разделы">
+    <button type="button" class="vbtn" data-view="chats" aria-pressed="true" data-i18n="viewChats">Чаты</button>
+    <button type="button" class="vbtn" data-view="prompts" aria-pressed="false" data-i18n="viewPrompts">Промпты</button>
+    <button type="button" class="vbtn" data-view="settings" aria-pressed="false" data-i18n="viewSettings">Настройки</button>
+  </nav>
+</header>
+
+<div id="banner" class="banner" hidden></div>
+
+<div class="layout">
+  <aside id="side" aria-label="Папки и фильтры">
+    <ul class="nav" id="navList"></ul>
+    <div class="sec-head"><h2 data-i18n="folders">Папки</h2><button id="addFolder" type="button" class="btn small ghost" data-i18n-title="newFolder" title="Новая папка" aria-label="Новая папка">+</button></div>
+    <ul class="nav" id="folders"></ul>
+    <div class="sec-head"><h2 data-i18n="tags">Теги</h2><button id="addTag" type="button" class="btn small ghost" data-i18n-title="newTag" title="Новый тег" aria-label="Новый тег">+</button></div>
+    <ul class="nav" id="tags"></ul>
+    <div class="sec-head"><h2 data-i18n="services">Сервисы</h2></div>
+    <div id="svcFilter" class="svc-filter" role="group"></div>
+  </aside>
+
+  <main>
+    <section id="chatsView" aria-labelledby="viewTitle">
+      <div class="toolbar">
+        <h2 id="viewTitle"></h2>
+        <span id="viewCount" class="muted"></span>
+        <span class="spacer"></span>
+        <label class="selall"><input type="checkbox" id="selectAll"> <span data-i18n="selectAll">Выбрать все</span></label>
+        <select id="bulkMove" aria-label="Переместить выбранные" disabled></select>
+        <select id="bulkFormat" aria-label="Формат">
+          <option value="md">Markdown</option><option value="html">HTML</option><option value="txt">TXT</option><option value="json">JSON</option>
+        </select>
+        <button id="bulkExport" type="button" class="btn small primary" data-i18n="exportZip">Скачать .zip</button>
+      </div>
+      <ul id="list" class="list"></ul>
+      <div id="empty" class="empty" hidden></div>
+    </section>
+
+    <section id="promptsView" hidden>
+      <div class="toolbar"><h2 data-i18n="viewPrompts">Промпты</h2><span class="spacer"></span><button id="newPrompt" type="button" class="btn small primary" data-i18n="newPrompt">Новый промпт</button></div>
+      <div class="prompts">
+        <ul id="promptList" class="plist"></ul>
+        <form id="promptForm" class="pform">
+          <label><span data-i18n="promptTitle">Название</span><input id="pTitle" type="text" maxlength="80"></label>
+          <label><span data-i18n="promptBody">Текст промпта</span><textarea id="pBody" rows="10" maxlength="20000"></textarea></label>
+          <p class="muted small" data-i18n="promptVarsHint">Переменные пишите в двойных фигурных скобках: {{тема}}. При вставке расширение спросит их значения.</p>
+          <p id="pVars" class="vars"></p>
+          <div class="row">
+            <button type="submit" class="btn primary" data-i18n="save">Сохранить</button>
+            <button id="pDelete" type="button" class="btn danger" data-i18n="delete">Удалить</button>
+          </div>
+        </form>
+      </div>
+      <p class="muted small" data-i18n="promptsWhere">Промпты вставляются в поле ввода через панель органайзера на странице чата (вкладка «Промпты»).</p>
+    </section>
+
+    <section id="settingsView" hidden>
+      <h2 data-i18n="settingsSites">Сайты</h2>
+      <p class="muted" data-i18n="settingsSitesNote">Расширение работает только на включённых сайтах и только с той страницей, которую вы открыли.</p>
+      <div id="siteSettings" class="sites"></div>
+
+      <h2 data-i18n="settingsIndex">Поиск по открытым чатам</h2>
+      <div class="explain">
+        <p data-i18n="indexExplain1">Когда вы открываете чат, расширение сохраняет его название и текст в этом браузере (IndexedDB), чтобы работали поиск и экспорт из органайзера.</p>
+        <p data-i18n="indexExplain2">Расширение не обращается к API сервисов и не скачивает вашу историю: в поиск попадают только чаты, которые вы сами открыли. Ничего не отправляется в интернет.</p>
+        <p data-i18n="indexExplain3">Выключите сохранение для любого сайта переключателем выше. Экспорт открытого чата работает и без него.</p>
+      </div>
+
+      <h2 data-i18n="sectionBackup">Резервная копия</h2>
+      <p class="muted" data-i18n="backupNote">Папки, теги, закрепления, промпты и настройки — в один файл .json. Тексты чатов в копию не входят: они снова попадут в поиск, когда вы откроете чаты.</p>
+      <div class="row">
+        <button id="exportBackup" type="button" class="btn" data-i18n="exportJson">Экспорт (.json)</button>
+        <label class="btn"><span data-i18n="importJson">Импорт (.json)</span><input id="importBackup" type="file" accept="application/json,.json" hidden></label>
+      </div>
+
+      <h2 data-i18n="sectionData">Данные</h2>
+      <p id="dataStats" class="muted"></p>
+      <div class="row">
+        <button id="forgetHistory" type="button" class="btn" data-i18n="forgetHistory">Забыть историю открытых чатов</button>
+        <button id="clearAll" type="button" class="btn danger" data-i18n="clearAll">Удалить все данные</button>
+      </div>
+
+      <h2 data-i18n="sectionSelectors">Совместимость с сайтами</h2>
+      <p class="muted" id="selectorsInfo"></p>
+      <p class="muted small" data-i18n="selectorsNote">Если сайт изменит разметку, функции, которые от неё зависят, отключатся, а здесь и во всплывающем окне появится предупреждение. Исправление приходит с обновлением расширения.</p>
+    </section>
+  </main>
+</div>
+
+<dialog id="dlg">
+  <form method="dialog" id="dlgForm">
+    <h2 id="dlgTitle"></h2>
+    <div id="dlgBody"></div>
+    <div class="row end">
+      <button type="button" class="btn" id="dlgCancel" data-i18n="cancel">Отмена</button>
+      <button type="submit" class="btn primary" id="dlgOk" data-i18n="save">Сохранить</button>
+    </div>
+  </form>
+</dialog>
+
+<footer class="footer">
+  <span data-i18n="privacyShort">Расширение ничего не отправляет в интернет: нет аналитики, рекламы и аккаунтов.</span>
+  <a href="#" data-brand-link="other" target="_blank" rel="noopener" data-i18n="otherExtensions">Другие расширения автора</a>
+</footer>
+<script type="module" src="organizer.js"></script>
+</body>
+</html>

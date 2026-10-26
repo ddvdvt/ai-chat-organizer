@@ -1,0 +1,80 @@
+<!doctype html>
+<!-- BROKEN variant for the degradation test: message markup renamed, so selectors stop matching.
+     Local fixture that mimics the DOM structure of claude.ai (logged in) from public knowledge:
+     [data-testid=user-message], .assistant-reply-v2 > .standard-markdown, code blocks with a
+     .text-text-300 language label and code.language-*, ProseMirror input, sidebar /chat/<uuid>. -->
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Claude</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font:15px/1.65 Georgia,"Times New Roman",serif;color:#2b2a27;background:#faf9f5;height:100vh;overflow:hidden}
+  .app{display:flex;height:100vh}
+  nav{width:270px;flex:none;background:#f3f1ea;border-right:1px solid #e6e2d8;padding:14px 10px;overflow:auto;font-family:"Segoe UI",system-ui,sans-serif}
+  nav .new{display:block;padding:8px 10px;border-radius:8px;color:#2b2a27;text-decoration:none;font-weight:600}
+  nav h3{font-size:12px;color:#8a857a;margin:18px 10px 6px;font-weight:600}
+  nav a[data-fixture-link]{display:flex;padding:6px 10px;border-radius:8px;color:#2b2a27;text-decoration:none;font-size:14px}
+  nav a[data-fixture-link]:hover,nav a[data-active]{background:#e8e4d9}
+  .truncate{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  main{flex:1;display:flex;flex-direction:column;min-width:0}
+  header{height:52px;display:flex;align-items:center;padding:0 20px;font-family:"Segoe UI",system-ui,sans-serif}
+  header button{border:0;background:none;font:600 15px "Segoe UI",system-ui,sans-serif;color:#2b2a27}
+  .scroll{flex:1;overflow:auto}
+  .thread{max-width:740px;margin:0 auto;padding:10px 24px 40px}
+  [data-testid="human-turn-v2"]{background:#efebe1;border-radius:14px;padding:10px 16px;margin:14px 0;font-family:"Segoe UI",system-ui,sans-serif}
+  [data-testid="human-turn-v2"] p{margin:0}
+  .assistant-reply-v2{margin:14px 0 24px}
+  .standard-markdown p{margin:0 0 12px}
+  .code-wrap{position:relative;margin:12px 0}
+  .code-wrap .text-text-300{position:absolute;left:12px;top:6px;font:12px "Segoe UI",sans-serif;color:#8a857a}
+  .code-wrap button{position:absolute;right:8px;top:4px;font-size:12px;border:0;background:none;color:#8a857a}
+  pre.code-block__code{margin:0;padding:30px 14px 12px;background:#f0eee6;border-radius:10px;font:13px/1.5 Consolas,monospace;overflow:auto}
+  code{font-family:Consolas,monospace;font-size:.92em}
+  fieldset{border:1px solid #e0dccf;border-radius:18px;max-width:740px;width:calc(100% - 48px);margin:0 auto 18px;background:#fff;padding:14px 18px;font-family:"Segoe UI",system-ui,sans-serif}
+  .ProseMirror{outline:none;min-height:44px}
+  .ProseMirror p{margin:0}
+</style>
+</head>
+<body data-title-suffix=" - Claude" data-home-title="Claude">
+<div class="app">
+  <nav>
+    <a class="new" href="/new">+ Новый чат</a>
+    <h3>Недавние</h3>
+    <a data-fixture-link href="/chat/0d1c2b3a-4f5e-4d6c-8b7a-9e8d7c6b5a40"><span class="truncate">Рефакторинг функции на Python</span></a>
+    <a data-fixture-link href="/chat/1e2d3c4b-5a6f-4e7d-9c8b-0f9e8d7c6b51"><span class="truncate">Тезисы для доклада о UX</span></a>
+    <a data-fixture-link href="/chat/2f3e4d5c-6b7a-4f8e-8d9c-1a0f9e8d7c62"><span class="truncate">Сравнение тарифов хостинга</span></a>
+    <a data-fixture-link href="/chat/3a4f5e6d-7c8b-4a9f-9e0d-2b1a0f9e8d73"><span class="truncate">Перевод договора на английский</span></a>
+    <a data-fixture-link href="/chat/4b5a6f7e-8d9c-4b0a-8f1e-3c2b1a0f9e84"><span class="truncate">Как выучить испанский за год</span></a>
+  </nav>
+  <main>
+    <header><button data-testid="chat-menu-trigger" type="button"><div class="truncate" data-fixture-title></div></button></header>
+    <div class="scroll"><div class="thread" data-fixture-thread></div></div>
+    <fieldset><div contenteditable="true" class="ProseMirror" translate="no" aria-label="Напишите сообщение"><p></p></div></fieldset>
+  </main>
+</div>
+
+<template id="chat:/chat/9f9f9f9f-0000-4000-8000-000000000001" data-title="Рефакторинг функции на Python">
+  <div data-test-render-count="1"><div class="group relative"><div data-testid="human-turn-v2" class="font-user-message"><p class="whitespace-pre-wrap break-words">Упрости функцию, она считает среднее только по положительным числам:
+def avg(xs): ...</p></div></div></div>
+  <div data-test-render-count="1"><div data-is-streaming="false"><div class="assistant-reply-v2 relative leading-[1.65rem]"><div class="standard-markdown grid-cols-1 grid gap-2.5">
+    <p class="whitespace-normal break-words">Вот компактный вариант с генератором и защитой от пустого списка:</p>
+    <div class="code-wrap relative flex flex-col"><div class="text-text-300 absolute pl-3 pt-2.5 text-xs">python</div><div class="pointer-events-none sticky"><button class="pointer-events-auto" type="button">Копировать</button></div><div><pre class="code-block__code"><code class="language-python"><span>def avg_positive(xs: list[float]) -&gt; float:</span>
+<span>    pos = [x for x in xs if x &gt; 0]</span>
+<span>    return sum(pos) / len(pos) if pos else 0.0</span></code></pre></div></div>
+    <p class="whitespace-normal break-words">Что изменилось:</p>
+    <ul class="list-disc"><li class="whitespace-normal">списковое включение вместо цикла;</li><li class="whitespace-normal">деление на ноль больше <em>невозможно</em>;</li><li class="whitespace-normal">аннотации типов для <code>mypy</code>.</li></ul>
+    <blockquote><p>Правило: функция должна делать одну вещь.</p></blockquote>
+  </div></div></div></div>
+</template>
+
+<template id="chat:/chat/1e2d3c4b-5a6f-4e7d-9c8b-0f9e8d7c6b51" data-title="Тезисы для доклада о UX">
+  <div data-test-render-count="1"><div data-testid="human-turn-v2"><p class="whitespace-pre-wrap break-words">Дай 3 тезиса для доклада о пустых состояниях в интерфейсе.</p></div></div>
+  <div data-test-render-count="1"><div class="assistant-reply-v2"><div class="standard-markdown">
+    <ol><li>Пустое состояние — первая встреча с продуктом.</li><li>Оно должно подсказывать следующий шаг.</li><li>Ошибки и загрузка — тоже состояния, их нужно проектировать.</li></ol>
+  </div></div></div>
+</template>
+
+<script src="/_spa.js"></script>
+</body>
+</html>
