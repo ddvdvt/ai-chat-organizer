@@ -3,7 +3,7 @@
 // settings (sites, indexing opt-out per service), backup.
 import { applyI18n, t } from '../shared/i18n.js';
 import { wireBrandLinks } from '../shared/brand-link.js';
-import { h, send, op, download, toast, badge, grantedServices, requestService, revokeService, shortDate, uiLocale } from '../shared/page.js';
+import { h, icon, send, op, download, toast, badge, grantedServices, requestService, revokeService, shortDate, uiLocale } from '../shared/page.js';
 import { SERVICES } from '../../lib/services.js';
 import { normalizeState, folderTree, filterChats, folderCounts, folderPath, COLORS } from '../../lib/org.js';
 import { normalizeSettings } from '../../lib/settings.js';
@@ -221,7 +221,7 @@ function renderSide() {
   const item = (f, sub) => {
     const b = navItem(f.id, [h('span', { class: 'dot', style: `--c:${f.color}` }), h('span', { class: 'nm' }, f.name)], counts[f.id] || 0, { 'data-folder': f.id });
     dropOn(b, f.id);
-    const edit = h('button', { type: 'button', class: 'btn small ghost edit', title: t('editFolder'), 'aria-label': `${t('editFolder')}: ${f.name}`, onclick: () => folderDialog(f) }, '✎');
+    const edit = h('button', { type: 'button', class: 'btn small ghost edit', title: t('editFolder'), 'aria-label': `${t('editFolder')}: ${f.name}`, onclick: () => folderDialog(f) }, icon('edit', 13));
     return h('li', { class: sub ? 'sub' : '' }, b, edit);
   };
   for (const f of tree) {
@@ -236,7 +236,7 @@ function renderSide() {
     const n = all.filter((c) => c.tags.includes(tg.id)).length;
     const active = st.tagId === tg.id;
     const b = h('button', { type: 'button', class: `nav-item${active ? ' active' : ''}`, 'aria-current': active ? 'true' : null, onclick: () => ((st.tagId = active ? null : tg.id), clearSearch(), render()) }, h('span', { class: 'chip', style: `--c:${tg.color}` }, `# ${tg.name}`), h('span', { class: 'cnt' }, String(n)));
-    tl.append(h('li', {}, b, h('button', { type: 'button', class: 'btn small ghost edit', title: t('editTag'), 'aria-label': `${t('editTag')}: ${tg.name}`, onclick: () => tagDialog(tg) }, '✎')));
+    tl.append(h('li', {}, b, h('button', { type: 'button', class: 'btn small ghost edit', title: t('editTag'), 'aria-label': `${t('editTag')}: ${tg.name}`, onclick: () => tagDialog(tg) }, icon('edit', 13))));
   }
 
   const sf = $('svcFilter');
@@ -330,7 +330,7 @@ function chatRow(c, snip) {
   const indexed = st.indexed.has(c.key);
   const tags = c.tags.map((id) => st.org.tags.find((x) => x.id === id)).filter(Boolean);
   const check = h('input', { type: 'checkbox', 'aria-label': `${t('select')}: ${c.title || t('untitled')}`, checked: st.selected.has(c.key), onchange: (e) => (e.target.checked ? st.selected.add(c.key) : st.selected.delete(c.key), updateBulk()) });
-  const pin = h('button', { type: 'button', class: `btn small ghost pin${c.pinned ? ' on' : ''}`, 'aria-pressed': String(c.pinned), title: c.pinned ? t('unpin') : t('pin'), 'aria-label': c.pinned ? t('unpin') : t('pin'), onclick: () => op({ type: 'pinChat', chat: refOf(c) }) }, '📌');
+  const pin = h('button', { type: 'button', class: `btn small ghost pin${c.pinned ? ' on' : ''}`, 'aria-pressed': String(c.pinned), title: c.pinned ? t('unpin') : t('pin'), 'aria-label': c.pinned ? t('unpin') : t('pin'), onclick: () => op({ type: 'pinChat', chat: refOf(c) }) }, icon('pin'));
   const exp = h(
     'select',
     {
@@ -364,8 +364,8 @@ function chatRow(c, snip) {
     h('div', { class: 'main' }, h('a', { class: 'title', href: c.url, target: '_blank', rel: 'noopener' }, c.title || t('untitled')), meta, snip ? h('p', { class: 'snip' }, snip.map((s) => (s.hit ? h('mark', {}, s.text) : s.text))) : null),
     folderSelect(c),
     exp,
-    h('button', { type: 'button', class: 'btn small ghost', title: t('tags'), 'aria-label': `${t('tags')}: ${c.title}`, onclick: () => tagsDialog(c) }, '#'),
-    h('button', { type: 'button', class: 'btn small ghost', title: t('renameChat'), 'aria-label': `${t('renameChat')}: ${c.title}`, onclick: () => renameDialog(c) }, '✎'),
+    h('button', { type: 'button', class: 'btn small ghost', title: t('tags'), 'aria-label': `${t('tags')}: ${c.title}`, onclick: () => tagsDialog(c) }, icon('tag')),
+    h('button', { type: 'button', class: 'btn small ghost', title: t('renameChat'), 'aria-label': `${t('renameChat')}: ${c.title}`, onclick: () => renameDialog(c) }, icon('edit')),
     h(
       'button',
       {
@@ -381,7 +381,7 @@ function chatRow(c, snip) {
           }
         },
       },
-      '🗑',
+      icon('trash'),
     ),
   );
   li.addEventListener('dragstart', (e) => {

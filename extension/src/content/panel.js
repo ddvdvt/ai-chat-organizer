@@ -287,7 +287,7 @@ export function createPanel(api) {
     );
     const more = h('button', { type: 'button', class: 'icon more', 'aria-label': t('moveToFolder'), title: t('moveToFolder'), onclick: (e) => openMenu({ service: c.service, chatId: c.chatId, title: c.title, url: c.url }, e.currentTarget) }, '⋯');
     if (S().current && S().current.chatId === c.chatId) a.setAttribute('aria-current', 'page');
-    return h('li', {}, a, more);
+    return h('li', { class: 'crow' }, a, more);
   }
 
   function dropTarget(el, folderId) {

@@ -51,8 +51,11 @@ main { padding: 14px 22px 40px; min-width: 0; }
 mark { background: #ffe58a; color: #1d2330; border-radius: 2px; padding: 0 1px; }
 .row select.move { width: 150px; }
 .row select.exp { width: 104px; }
-.pin { filter: grayscale(1); opacity: .45; }
-.pin.on { filter: none; opacity: 1; }
+.pin { color: var(--fg-muted); opacity: .5; }
+.pin.on { color: var(--accent); opacity: 1; }
+.row .btn.ghost { color: var(--fg-muted); }
+.row .btn.ghost:hover { color: var(--fg); }
+.row .btn.ghost.danger:hover { color: var(--danger); }
 .empty { text-align: center; color: var(--fg-muted); padding: 40px 20px; border: 1px dashed var(--border); border-radius: 12px; }
 .empty p { max-width: 520px; margin: 0 auto 12px; }
 .row.center, .row.end { display: flex; gap: 8px; flex-wrap: wrap; border: 0; background: none; padding: 0; }

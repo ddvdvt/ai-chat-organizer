@@ -15,6 +15,29 @@ export function h(tag, attrs = {}, ...kids) {
   return el;
 }
 
+const ICONS = {
+  pin: 'M14 3l7 7-3 1-4 4 .5 4.5L13 21l-4-4-5 5-1-1 5-5-4-4 1.5-1.5L10 11l4-4z',
+  tag: 'M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9zM7.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z',
+  edit: 'M4 17.25V20h2.75L17.8 8.94l-2.75-2.75zM20.7 6.04a1 1 0 0 0 0-1.41l-1.33-1.33a1 1 0 0 0-1.41 0l-1.13 1.13 2.75 2.75z',
+  trash: 'M8 3h8v2h5v2H3V5h5zM5 9h14l-1.2 12H6.2zm4 2v8h2v-8zm4 0v8h2v-8z',
+};
+
+/** Inline SVG icon (decorative; the button carries the label). @param {keyof typeof ICONS} name */
+export function icon(name, size = 15) {
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('width', String(size));
+  svg.setAttribute('height', String(size));
+  svg.setAttribute('aria-hidden', 'true');
+  const p = document.createElementNS(ns, 'path');
+  p.setAttribute('d', ICONS[name]);
+  p.setAttribute('fill', 'currentColor');
+  p.setAttribute('fill-rule', 'evenodd');
+  svg.append(p);
+  return svg;
+}
+
 /** Message to the service worker. */
 export async function send(msg) {
   try {
