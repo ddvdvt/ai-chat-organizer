@@ -47,6 +47,7 @@ export async function start() {
     health: (data.health && data.health[service]) || null,
     current: /** @type {{chatId: string, title: string, url: string} | null} */ (null),
     messagesOk: true,
+    rev: 0, // bumped on every storage change: cheap "did the data change" check for the panel
   };
 
   const chatIdOf = (url) => chatIdFromUrl(service, url, cfg.chatPath);
@@ -172,6 +173,7 @@ export async function start() {
     if (changes.settings) state.settings = normalizeSettings(changes.settings.newValue);
     if (changes.prompts) state.prompts = normalizePrompts(changes.prompts.newValue);
     if (changes.health) state.health = (changes.health.newValue && changes.health.newValue[service]) || null;
+    state.rev++;
     panel.render();
   });
 

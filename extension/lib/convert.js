@@ -114,7 +114,7 @@ function preParts(pre, o) {
       lang = '';
     }
   }
-  const text = String(code.textContent || '').replace(/ /g, ' ').replace(/\n+$/, '');
+  const text = String(code.textContent || '').replace(/\u00a0/g, ' ').replace(/\n+$/, '');
   return { lang, text };
 }
 
@@ -124,7 +124,7 @@ function preParts(pre, o) {
  */
 function inline(n, o, ctx) {
   if (isText(n)) {
-    let t = String(n.nodeValue ?? n.textContent ?? '').replace(/ /g, ' ');
+    let t = String(n.nodeValue ?? n.textContent ?? '').replace(/\u00a0/g, ' ');
     if (ctx.pre) {
       t = t.replace(/\r\n?/g, '\n');
       return ctx.plain ? t : t.split('\n').map(escapeMd).join('  \n');
@@ -154,7 +154,7 @@ function inline(n, o, ctx) {
     case 'STRIKE':
       return ctx.plain ? kids() : wrap(kids(), '~~');
     case 'CODE': {
-      const t = String(n.textContent || '').replace(/ /g, ' ');
+      const t = String(n.textContent || '').replace(/\u00a0/g, ' ');
       return ctx.plain ? t : inlineCode(t);
     }
     case 'A': {
@@ -343,7 +343,7 @@ const VOID_OUT = new Set(['br', 'hr']);
 
 function html(n, o, pre) {
   if (isText(n)) {
-    const t = escapeHtml(String(n.nodeValue ?? n.textContent ?? '').replace(/ /g, ' '));
+    const t = escapeHtml(String(n.nodeValue ?? n.textContent ?? '').replace(/\u00a0/g, ' '));
     return pre ? t.replace(/\r\n?/g, '\n').replace(/\n/g, '<br>') : t;
   }
   if (!isElement(n) || skipped(n, o)) return '';

@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "test": "node --test \"test/**/*.test.js\"",
-    "test:e2e": "node e2e/smoke.mjs",
+    "test:e2e": "node e2e/real-load.mjs && node e2e/smoke.mjs",
     "icons": "node scripts/make-icons.mjs",
     "locales": "node scripts/locales.src.mjs",
     "zip": "node scripts/pack.mjs",

@@ -616,7 +616,7 @@ export function createPanel(api) {
       return;
     }
     const broken = (st.health && st.health.status === 'degraded') || !st.messagesOk;
-    const key = JSON.stringify([ui.open, ui.tab, [...ui.expanded], st.current, st.messagesOk, st.health, st.org, st.prompts.length, st.prompts.map((p) => p.id + p.updatedAt), st.settings.services[service], !!ui.filling]);
+    const key = JSON.stringify([ui.open, ui.tab, [...ui.expanded], st.current, st.messagesOk, st.rev, !!ui.filling]);
     if (!force && key === lastKey) return;
     lastKey = key;
     warnBox.hidden = !broken;
