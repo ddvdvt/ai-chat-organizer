@@ -1,7 +1,7 @@
 # Chrome Web Store — Privacy practices & review notes (AI Chat Organizer)
 
 Copy each block into the matching field of the CWS developer dashboard.
-`BASE` = the brand site address from `extension/lib/brand.js` (currently the placeholder `https://USER.github.io/REPO/` — replace it before submitting).
+`BASE` = the brand site address from `extension/lib/brand.js` (currently `https://ddvdvt.github.io/`).
 
 ## Single purpose
 
@@ -37,7 +37,7 @@ Certifications (all three checked):
 
 ## Privacy policy URL
 
-`BASE` + `privacy/ai-chat-organizer.html` → currently `https://USER.github.io/REPO/privacy/ai-chat-organizer.html`
+`BASE` + `privacy/ai-chat-organizer.html` → `https://ddvdvt.github.io/privacy/ai-chat-organizer.html`
 
 ## Notes for the reviewer (test instructions)
 
