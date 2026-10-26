@@ -48,7 +48,8 @@ function resanitize(html) {
   }
   const sections = chat.messages.map((m) => {
     const content = h('div', { class: 'content' });
-    content.innerHTML = resanitize(m.html) || '';
+    // sanitized HTML, parsed in an inert document and moved in (no innerHTML on the live page)
+    content.replaceChildren(...new DOMParser().parseFromString(resanitize(m.html) || '', 'text/html').body.childNodes);
     if (!content.textContent.trim()) content.replaceChildren(...String(m.text || m.md || '').split('\n').flatMap((l, i) => (i ? [h('br'), l] : [l])));
     return h('section', { class: `msg ${m.role === 'user' ? 'user' : 'assistant'}` }, h('p', { class: 'who' }, m.role === 'user' ? t('roleUser') : svc), content);
   });
